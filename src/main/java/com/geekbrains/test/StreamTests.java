@@ -36,13 +36,11 @@ public class StreamTests {
     }
 
     //тест 2.3
-    @Test // не уверена что правильный тест не поняла как ошиьку выкидывать чтоб тест был пройден
     public void testTask13() {
-        List<Integer> list1 = java3hw6.findIntegers(new Integer[]{1, 1, 3, 1, 5, 2, 7, 8});
-        List<Integer> list2 = new ArrayList<>();
-        list2.addAll(List.of(new Integer[]{}));
+        Throwable thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+                    java3hw6.findIntegers(new Integer[]{1, 1, 3, 1, 5, 2, 7, 8});});
+        Assertions.assertNotNull(thrown.getMessage());
 
-        Assertions.assertArrayEquals(list1.toArray(), list2.toArray());
     }
 
     //тест 3.1

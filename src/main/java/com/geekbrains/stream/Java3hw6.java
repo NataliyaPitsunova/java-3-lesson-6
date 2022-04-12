@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 
 public class Java3hw6 {
-
+//упражнение 2
     public List<Integer> findIntegers(Integer[] integers) {
         List<Integer> results = new ArrayList<>();
         int lastIndx = 0;
@@ -24,7 +24,7 @@ public class Java3hw6 {
                 .collect(Collectors.toList());
     }
 
-
+//упражнение 3
     public boolean task2(Integer[] arr) {
         List<Integer> distinctInts = Arrays.asList(arr).stream().distinct().collect(Collectors.toList());
         return (distinctInts.size() == 2);

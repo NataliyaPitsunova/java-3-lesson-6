@@ -14,7 +14,7 @@ public class StreamTests {
         java3hw6 = new Java3hw6();
     }
 
-
+    //тест 2.1
     @Test
     public void testTask11() {
         List<Integer> list1 = java3hw6.findIntegers(new Integer[]{1, 2, 3, 4, 5, 4, 7, 8});
@@ -25,39 +25,41 @@ public class StreamTests {
     }
 
 
-
+    //тест 2.2
     @Test
     public void testTask12() {
         List<Integer> list1 = java3hw6.findIntegers(new Integer[]{1, 4, 3, 4, 5, 2, 7, 8});
         List<Integer> list2 = new ArrayList<>();
-        list2.addAll(List.of(new Integer[]{ 5, 2, 7, 8}));
+        list2.addAll(List.of(new Integer[]{5, 2, 7, 8}));
 
         Assertions.assertArrayEquals(list1.toArray(), list2.toArray());
     }
 
-    @Test // не уверена что правильный тест не поняла как ошиьку выкидывать чтоб тест был пройден
+    //тест 2.3
     public void testTask13() {
-        List<Integer> list1 = java3hw6.findIntegers(new Integer[]{1, 1, 3, 1, 5, 2, 7, 8});
-        List<Integer> list2 = new ArrayList<>();
-        list2.addAll(List.of(new Integer[]{}));
+        Throwable thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+                    java3hw6.findIntegers(new Integer[]{1, 1, 3, 1, 5, 2, 7, 8});});
+        Assertions.assertNotNull(thrown.getMessage());
 
-        Assertions.assertArrayEquals(list1.toArray(), list2.toArray());
     }
 
+    //тест 3.1
     @Test
     public void testTask21() {
-        boolean result = java3hw6.task2(new Integer[]{1,1,1,4,4,4});
+        boolean result = java3hw6.task2(new Integer[]{1, 1, 1, 4, 4, 4});
         Assertions.assertEquals(result, true);
     }
 
+    //тест 3.2
     @Test
     public void testTask22() {
-        boolean result = java3hw6.task2(new Integer[]{1,1,1});
+        boolean result = java3hw6.task2(new Integer[]{1, 1, 1});
         Assertions.assertEquals(result, false);
     }
-@Test
+    //тест 3.3
+    @Test
     public void testTask23() {
-        boolean result = java3hw6.task2(new Integer[]{4,4,4});
+        boolean result = java3hw6.task2(new Integer[]{4, 4, 4});
         Assertions.assertEquals(result, false);
     }
 
